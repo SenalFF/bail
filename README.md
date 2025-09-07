@@ -1,43 +1,4 @@
-# <div align='center'>Baileys Modification</div>
-
-<div align="center">
-
-  <img src="https://iili.io/2Zpjtlp.jpg" />
-
-  <a href="https://www.npmjs.com/package/baileys-mod">
-    <img src="https://img.shields.io/npm/v/baileys-mod?color=red&label=Version&logo=npm" alt="npm version" />
-  </a>
-
-  <a href="https://www.npmjs.com/package/baileys-mod">
-    <img src="https://img.shields.io/npm/dt/baileys-mod?color=red&label=Downloads&logo=npm" alt="npm downloads" />
-  </a>
-
-  <a href="https://whatsapp.com/channel/0029VaEe0l9Au3aVRw2x2r0V">
-    <img src="https://img.shields.io/badge/WhatsApp-Channel-25D366?logo=whatsapp&logoColor=white" alt="WhatsApp Channel" />
-  </a>
-
-</div>
-
-## 📖 Table of Contents
-
-- [Important Note](#important-note)
-- [Install](#install)
-- [Added Features and Improvements](#-added-features-and-improvements)
-- [Feature Examples](#feature-examples)
-  - [Newsletter Management](#newsletter-management)
-  - [Button and Interactive Message Management](#button-and-interactive-message-management)
-  - [Send Album Message](#send-album-message)
-  - [AI Message Icon Customization](#ai-message-icon-customization)
-  - [Custom Pairing Code Generation](#custom-pairing-code-generation)
-- [Reporting Issues](#reporting-issues)
-- [Notes](#notes)
----
-
-## Important Note
-
-The original repository was initially removed by its creator and subsequently taken over by [WhiskeySockets](https://github.com/WhiskeySockets). Building upon this foundation, I have implemented several enhancements and introduced new features that were not present in the original repository. These improvements aim to elevate functionality and provide a more robust and versatile experience.
-
-## Install
+l
 
 Install in package.json:
 ```json
@@ -82,78 +43,66 @@ Here are some examples of features that have been added:
 
 ### Newsletter Management
 
-<details>
-<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Examples</summary>
-<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
-
 - **To get info newsletter**
-```ts
+
 const metadata = await sock.newsletterMetadata("invite", "xxxxx")
 // or
 const metadata = await sock.newsletterMetadata("jid", "abcd@newsletter")
 console.log(metadata)
-```
+
 - **To update the description of a newsletter**
-```ts
+
 await sock.newsletterUpdateDescription("abcd@newsletter", "New Description")
-```
+
 - **To update the name of a newsletter**
-```ts
+
 await sock.newsletterUpdateName("abcd@newsletter", "New Name")
-```  
+
 - **To update the profile picture of a newsletter**
-```ts
+
 await sock.newsletterUpdatePicture("abcd@newsletter", buffer)
-```
 - **To remove the profile picture of a newsletter**
-```ts
+
 await sock.newsletterRemovePicture("abcd@newsletter")
-```
+
 - **To mute notifications for a newsletter**
-```ts
+
 await sock.newsletterUnmute("abcd@newsletter")
-```
+
 - **To mute notifications for a newsletter**
-```ts
+
 await sock.newsletterMute("abcd@newsletter")
-```
+
 - **To create a newsletter**
-```ts
+
 const metadata = await sock.newsletterCreate("Newsletter Name")
 console.log(metadata)
-```
+
 - **To delete a newsletter**
-```ts
+
 await sock.newsletterDelete("abcd@newsletter")
-```
+
 - **To follow a newsletter**
-```ts
+
 await sock.newsletterFollow("abcd@newsletter")
-```
+
 - **To unfollow a newsletter**
-```ts
 await sock.newsletterUnfollow("abcd@newsletter")
-```
+
 - **To send reaction**
-```ts
+
 // jid, id message & emoticon
 // way to get the ID is to copy the message url from channel
 // Example: [ https://whatsapp.com/channel/xxxxx/175 ]
 // The last number of the URL is the ID
 const id = "175"
 await sock.newsletterReactMessage("abcd@newsletter", id, "🥳")
-```
-</div>
-</details>
+
 
 ### Button and Interactive Message Management
 
-<details>
-<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Examples</summary>
-<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
-
 - **To send button with text**
-```ts
+
 const buttons = [
   { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
   { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
@@ -167,9 +116,9 @@ const buttonMessage = {
 }
 
 await sock.sendMessage(id, buttonMessage, { quoted: null })
-```
+
 - **To send button with image**
-```ts
+
 const buttons = [
   { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
   { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
@@ -185,9 +134,9 @@ const buttonMessage = {
 
 await sock.sendMessage(id, buttonMessage, { quoted: null })
 
-```
+
 - **To send button with video**
-```ts
+
 const buttons = [
   { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
   { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
@@ -202,10 +151,10 @@ const buttonMessage = {
 }
 
 await sock.sendMessage(id, buttonMessage, { quoted: null })
-```
+
 
 - **To send interactive message**
-```ts
+
 const interactiveButtons = [
      {
         name: "quick_reply",
@@ -239,9 +188,9 @@ const interactiveMessage = {
 }
 
 await sock.sendMessage(id, interactiveMessage, { quoted: null })
-```
+
 - **To send interactive message with image**
-```ts
+
 const interactiveButtons = [
      {
         name: "quick_reply",
@@ -276,9 +225,9 @@ const interactiveMessage = {
 }
 
 await sock.sendMessage(id, interactiveMessage, { quoted: null })
-```
+
 - **To send interactive message with video**
-```ts
+
 const interactiveButtons = [
      {
         name: "quick_reply",
@@ -313,9 +262,9 @@ const interactiveMessage = {
 }
 
 await sock.sendMessage(id, interactiveMessage, { quoted: null })
-```
+
 - **To send list interactive**
-```ts
+
 const interactiveButtons = [
   {
     name: "single_select",
@@ -352,19 +301,10 @@ const interactiveMessage = {
     interactiveButtons
 };
 
-await sock.sendMessage(id, interactiveMessage, { quoted: null });
-```
-
-</div>
-</details>
+await sock.sendMessage(id, interactiveMessage, { quoted: null })
 
 ### Send Album Message
 
-<details>
-<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
-<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
-
-```ts
 // Media can be a URL, buffer, or path.
 const media = [
   {
@@ -379,32 +319,17 @@ const media = [
 ]
 
 await sock.sendMessage(id, { album: media, caption: "testing send album" }, { quoted: null })
-```
 
-</div>
-</details>
 
 ### AI Message Icon Customization
 
-<details>
-<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
-<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
-```ts
 // To enable the AI icon for a message, simply add the "ai: true" parameter:
 await sock.sendMessage(id, { text: "Hello World", ai: true });
-```
 
-</div>
-</details>
 
 ### Custom Pairing Code Generation
 
-<details>
-<summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
-<div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
-
-```ts
 if(usePairingCode && !sock.authState.creds.registered) {
     const phoneNumber = await question('Please enter your mobile phone number:\n');
     // Define your custom 8-digit code (alphanumeric)
@@ -412,13 +337,3 @@ if(usePairingCode && !sock.authState.creds.registered) {
     const code = await sock.requestPairingCode(phoneNumber, customPairingCode);
     console.log(`Your Pairing Code: ${code?.match(/.{1,4}/g)?.join('-') || code}`);
 }
-```
-*Note: The `question` function is a placeholder for your method of obtaining user input.*
-</div>
-</details>
-
-## Reporting Issues
-If you encounter any issues while using this repository or any part of it, please feel free to open a [new issue](https://github.com/nstar-y/Bail/issues) here.
-
-## Notes
-Everything other than the modifications mentioned above remains the same as the original repository. You can check out the original repository at [WhiskeySockets](https://github.com/WhiskeySockets/Baileys)
